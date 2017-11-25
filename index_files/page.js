@@ -3,10 +3,10 @@
         $('#test').scrollToFixed();
         $('.res-nav_click').click(function(){
             $('.main-nav').slideToggle();
-            return false    
-            
+            return false
+
         });
-        
+
     });
 /*====================================================*/
     wow = new WOW(
@@ -18,10 +18,10 @@
     wow.init();
 /*====================================================*/
 	$(window).load(function(){
-		
-		$('.main-nav li a').bind('click',function(event){
+
+		$('a').bind('click',function(event){
 			var $anchor = $(this);
-			
+
 			$('html, body').stop().animate({
 				scrollTop: $($anchor.attr('href')).offset().top - 102
 			}, 1500,'easeInOutExpo');
@@ -37,14 +37,14 @@
 /*====================================================*/
 
 $(window).load(function(){
-  
-  
+
+
   var $container = $('.portfolioContainer'),
       $body = $('body'),
       colW = 375,
       columns = null;
 
-  
+
   $container.isotope({
     // disable window resizing
     resizable: true,
@@ -52,7 +52,7 @@ $(window).load(function(){
       columnWidth: colW
     }
   });
-  
+
   $(window).smartresize(function(){
     // check if columns has changed
     var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
@@ -63,18 +63,18 @@ $(window).load(function(){
       $container.width( columns * colW )
         .isotope('reLayout');
     }
-    
+
   }).smartresize(); // trigger resize to set container width
   $('.portfolioFilter a').click(function(){
         $('.portfolioFilter .current').removeClass('current');
         $(this).addClass('current');
- 
+
         var selector = $(this).attr('data-filter');
         $container.isotope({
-			
+
             filter: selector,
          });
          return false;
     });
-  
+
 });
