@@ -65,7 +65,14 @@ $(window).load(function(){
         }
 
     }).smartresize(); // trigger resize to set container width
-    $('.portfolioFilter a').click(function(){
+    $('.portfolioFilter a').click(filterStack);
+    setTimeout( clickRight(), 100 );
+
+    function clickRight() {
+        $('.portfolioFilter a.current').trigger('click');
+    };
+
+    function filterStack(){
         $('.portfolioFilter .current').removeClass('current');
         $(this).addClass('current');
 
@@ -75,6 +82,6 @@ $(window).load(function(){
             filter: selector,
         });
         return false;
-    });
+    }
 
 });
