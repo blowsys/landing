@@ -1,10 +1,13 @@
 
 $(document).ready(function(e) {
-    $('#test').scrollToFixed();
+    $('#test').scrollToFixed({display: 'block'});
     $('.res-nav_click').click(function(){
-        $('.main-nav').slideToggle();
+        if ($('.main-nav').hasClass('opened')) {
+            $('.main-nav').removeClass('opened').slideUp();
+        } else {
+            $('.main-nav').addClass('opened').slideDown();
+        }
         return false
-
     });
 
 });
@@ -19,21 +22,19 @@ wow.init();
 /*====================================================*/
 $(window).load(function(){
 
-    $('.main-nav li a, header a, .knowMore').bind('click',function(event){
-        var $anchor = $(this);
 
+    $('.main-nav li a, header a, .knowMore, .footer-logo a').bind('click',function(event){
+        var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top - 102
         }, 1500,'easeInOutExpo');
-        /*
-        if you don't want to use the easing effects:
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1000);
-        */
         event.preventDefault();
+        if ($('.main-nav').hasClass('opened')) {
+            $('.main-nav').removeClass('opened').slideUp();
+        }
     });
-})
+
+});
 /*====================================================*/
 
 $(window).load(function(){
