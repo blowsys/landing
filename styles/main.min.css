@@ -28,3 +28,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background-size:cover;
   background-attachment:fixed;
 }
+.portf-image{
+  padding: 50px;
+}
+.portfolio-title{
+  margin: 0;
+  font-weight: 600;
+}
+.portfolio-content{
+  font-weight: 400;
+}
+.swiper-slide{
+  flex-direction: column !important;
+}
